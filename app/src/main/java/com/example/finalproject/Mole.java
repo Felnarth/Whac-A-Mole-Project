@@ -31,6 +31,7 @@ public class Mole extends AppCompatImageView {
         viewAnimator.setInterpolator(new AccelerateDecelerateInterpolator());
         viewAnimator.setRepeatMode(ValueAnimator.REVERSE);
         viewAnimator.setRepeatCount(ValueAnimator.INFINITE);
+
     }
 
     public void startAnimation()
@@ -46,7 +47,7 @@ public class Mole extends AppCompatImageView {
         @Override
         public void onClick(View view)
         {
-
+            viewAnimator.cancel();
             ((AppCompatImageView) view).setImageDrawable(context.getResources().getDrawable(getResources().getIdentifier("dizzymole", "drawable", context.getPackageName())));
             ObjectAnimator scale1 = ObjectAnimator.ofFloat(getOuter(), "scaleX", 0);
             scale1.setDuration(2000);
@@ -58,4 +59,5 @@ public class Mole extends AppCompatImageView {
     }
 
     //will need a listener for when animation is finished
+
 }

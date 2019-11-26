@@ -10,6 +10,10 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+//Look at these sources:
+//https://developer.android.com/training/animation/reposition-view#java
+//http://cogitolearning.co.uk/2014/01/android-property-animations-controlling-animation-flow/
+
 public class MainActivity extends AppCompatActivity {
 
     //if direction false -> up    if direction true -> down
