@@ -7,44 +7,35 @@ import android.animation.ObjectAnimator;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
     //if direction false -> up    if direction true -> down
-    private boolean direction = true;
-    private TextView animateTextView = null;
-    private ObjectAnimator textViewAnimator = null;
-    ConstraintLayout mainLayout = null;
-
+    RelativeLayout mainLayout = null;
+    Mole m1, m2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         mainLayout = this.findViewById(R.id.mainLayout);
+        m1 = new Mole(this, 50, 50);
+        m2 = new Mole(this, 100, 100);
 
-        animateTextView = findViewById(R.id.helloWorld);
-        textViewAnimator = ObjectAnimator.ofFloat(animateTextView, "translationY", 0f, 0f);
-        textViewAnimator.setDuration(2000);
-        textViewAnimator.setInterpolator(new AccelerateDecelerateInterpolator());
+        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(200,200);
+            params.leftMargin = 70;
+            params.rightMargin = 80;
+        mainLayout.addView(m1, params);
 
-        animateTextView.setOnClickListener( new View.OnClickListener() {
-            @Override
-            public void onClick(View view)
-            {
-                if(direction)
-                    textViewAnimator.setFloatValues(0f,500f);
-                else
-                    textViewAnimator.setFloatValues(500f,0f);
+        params = new RelativeLayout.LayoutParams(200,200);
+            params.leftMargin = 500;
+            params.rightMargin = 600;
+        mainLayout.addView(m2, params);
 
-                direction = !direction;
-                textViewAnimator.start();
-            }
-        });
-
-
-
+        m1.startAnimation();
+        m2.startAnimation();
 
     }
 }
