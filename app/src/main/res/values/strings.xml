@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">FinalProject</string>
+    <string-array name="difficulties">
+        <item>Easy</item>
+        <item>Moderate</item>
+        <item>Hard</item>
+    </string-array>
+    <string-array name="numMoles">
+        <item>10</item>
+        <item>20</item>
+        <item>30</item>
+    </string-array>
 </resources>
